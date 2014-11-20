@@ -38,7 +38,7 @@ public class Utils {
     /**
      * characters to compare against when checking for 160 character sending compatibility
      */
-    public static final String GSM_CHARACTERS_REGEX = "^[A-Za-z0-9 \\r\\n@Ł$ĽčéůěňÇŘřĹĺ\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EĆćßÉ!\"#$%&'()*+,\\-./:;<=>?ĄÄÖŃÜ§żäöńüŕ^{}\\\\\\[~\\]|\u20AC]*$";
+    public static final String GSM_CHARACTERS_REGEX = "^[A-Za-z0-9 \\r\\n@Å�$Ä½Ä�Ã©Å¯Ä›ÅˆÃ‡Å˜Å™Ä¹Äº\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÄ†Ä‡ÃŸÃ‰!\"#$%&'()*+,\\-./:;<=>?Ä„Ã„Ã–ÅƒÃœÂ§Å¼Ã¤Ã¶Å„Ã¼Å•^{}\\\\\\[~\\]|\u20AC]*$";
 
     /**
      * Gets the current users phone number
@@ -292,9 +292,12 @@ public class Utils {
                 if (cursor.moveToFirst()) {
                     return cursor.getLong(0);
                 } else {
-
+                	Log.i("couldnt move to first","cursor.movetofirst doesnt work");
                 }
-            } finally {
+            } catch(Exception e) {
+            	e.printStackTrace();
+            }
+            finally {
                 cursor.close();
             }
         }

@@ -108,12 +108,15 @@ public final class SqliteWrapper {
 
     public static Uri insert(Context context, ContentResolver resolver,
             Uri uri, ContentValues values) {
+    	Log.i("uri",uri.toString());
+    	Uri u;
         try {
-            return resolver.insert(uri, values);
-        } catch (SQLiteException e) {
-            Log.e(TAG, "Catch a SQLiteException when insert: ", e);
-            checkSQLiteException(context, e);
-            return null;
+        	u = resolver.insert(uri, values);
+            return u;
+        }
+        catch(Exception e) {
+        	e.printStackTrace(); 
+        	return null;
         }
     }
 }
